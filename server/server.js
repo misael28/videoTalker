@@ -16,10 +16,20 @@ const io = socket(server, {
   },
 });
 
+let peers = [];
 io.on("connection", (socket) => {
   console.log("New client connected");
 
   socket.emit("connection", null);
   console.log("new user connected");
   console.log(socket.id);
+
+  socket.on("reigister-new-user", (data) => {
+    peers.push({
+      username: data.username,
+      socket: data.socketId,
+    });
+    console.log("new user registerd");
+    console.log(peers);
+  });
 });
