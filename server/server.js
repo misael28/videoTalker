@@ -1,5 +1,5 @@
-import express from "express";
-import socket from "socket.io";
+const express = require("express");
+const socket = require("socket.io");
 
 const PORT = 5000;
 
@@ -12,7 +12,7 @@ const server = app.listen(PORT, () => {
 const io = socket(server, {
   cors: {
     origin: "*",
-    methods: ["GET", POST],
+    methods: ["GET", "POST"],
   },
 });
 
