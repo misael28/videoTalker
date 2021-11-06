@@ -9,13 +9,13 @@ import { setUsername } from "../store/actions/dashboardActions";
 import "./LoginPage.css";
 
 const LoginPage = ({ saveUsername }) => {
-  const [username, setUserName] = useState("");
+  const [username, setUsername] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmitButtonPressed = () => {
     navigate("/dashboard");
-    setUserName(username);
+    saveUsername(username);
   };
 
   return (

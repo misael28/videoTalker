@@ -1,9 +1,9 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { connectWithWebSocket } from "./utils/wssConnection/wwsConnection";
-import LoginPage from "../src/LoginPage/LoginPage";
-import Dashboard from "../src/Dashboard/Dashboard";
+import { connectWithWebSocket } from "./utils/wssConnection/wssConnection";
+import Dashboard from "./Dashboard/Dashboard";
+import LoginPage from "./LoginPage/LoginPage";
 
 function App() {
   useEffect(() => {
