@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { connectWithWebSocket } from "./utils/wssConnection/wwsConnection";
 import LoginPage from "./pages/Login/login";
@@ -12,10 +12,10 @@ function App() {
 
   return (
     <Router>
-      <Switch>
-        <Route path="/Dashboard" component={Dashboard} />
-        <Route path="/" component={LoginPage} />
-      </Switch>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<LoginPage />} />
+      </Routes>
     </Router>
   );
 }
