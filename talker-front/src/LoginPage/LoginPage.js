@@ -5,7 +5,7 @@ import UsernameInput from "./components/UsernameInput";
 import SubmitButton from "./components/SubmitButton";
 import { useNavigate } from "react-router-dom";
 import { setUsername } from "../store/actions/dashboardActions";
-
+import { registerNewUser } from "../utils/wssConnection/wssConnection";
 import "./LoginPage.css";
 
 const LoginPage = ({ saveUsername }) => {
@@ -14,8 +14,9 @@ const LoginPage = ({ saveUsername }) => {
   const navigate = useNavigate();
 
   const handleSubmitButtonPressed = () => {
-    navigate("/dashboard");
+    registerNewUser(username);
     saveUsername(username);
+    navigate("/dashboard");
   };
 
   return (
