@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import logo from "../resources/logo.png";
 import ActiveUsersList from "./components/ActiveUsersList/ActiveUsersList";
-import "./Dashboard.css";
 import * as webRTCHandler from "../utils/webRTC/webRTCHandler";
 import DirectCall from "./components/DirectCall/DirectCall";
+
+import "./Dashboard.css";
+
 const Dashboard = () => {
   useEffect(() => {
     webRTCHandler.getLocalStream();

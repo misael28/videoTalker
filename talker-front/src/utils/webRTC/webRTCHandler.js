@@ -1,20 +1,21 @@
 import store from "../../store/store";
-
 import { setLocalStream } from "../../store/actions/callActions";
 
-const defaultConstraints = {
-  audio: true,
+const defaultConstrains = {
   video: true,
+  audio: true,
 };
 
 export const getLocalStream = () => {
   navigator.mediaDevices
-    .getUserMedia(defaultConstraints)
+    .getUserMedia(defaultConstrains)
     .then((stream) => {
       store.dispatch(setLocalStream(stream));
     })
     .catch((err) => {
-      console.log("Error when trying to get access");
+      console.log(
+        "error occured when trying to get an access to get local stream"
+      );
       console.log(err);
     });
 };

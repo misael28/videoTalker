@@ -1,14 +1,15 @@
 import React, { useRef, useEffect } from "react";
+
 const styles = {
   videoContainer: {
     width: "150px",
     height: "150px",
-    borderRadius: "8px%",
+    borderRadius: "8px",
     position: "absolute",
-    top: "5px",
+    top: "5%",
     right: "23%",
   },
-  videoElemet: {
+  videoElement: {
     width: "100%",
     height: "100%",
   },
@@ -19,22 +20,19 @@ const LocalVideoView = (props) => {
   const localVideoRef = useRef();
 
   useEffect(() => {
-    const localVideo = localVideoRef.current;
-    localVideo.srcObject = localStream;
+    if (localStream) {
+      const localVideo = localVideoRef.current;
+      localVideo.srcObject = localStream;
 
-    localVideo.onloadedmetadata = (e) => {
-      localVideo.play();
-    };
+      localVideo.onloadedmetadata = () => {
+        localVideo.play();
+      };
+    }
   }, [localStream]);
 
   return (
     <div style={styles.videoContainer} className="background_secondary_color">
-      <video
-        style={styles.videoElemet}
-        ref={localVideoRef}
-        autoPlay
-        muted
-      ></video>
+      <video style={styles.videoElement} ref={localVideoRef} autoPlay muted />
     </div>
   );
 };
